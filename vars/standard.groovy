@@ -25,7 +25,7 @@ def call(String goToolName = 'go-1.12', String goLangCiVersion = 'v1.57.2') {
         }
         stage('Code Analysis') {
             steps {
-                sh "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin $goLangCiVersion"
+                sh "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin ${goLangCiVersion}"
                 sh '$(go env GOPATH)/bin/golangci-lint --version'
                 sh '$(go env GOPATH)/bin/golangci-lint run'
             }
